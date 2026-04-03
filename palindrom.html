@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Palindrome Checker</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,6 +13,7 @@
             align-items: center;
             height: 100vh;
             color: #333;
+            margin: 0;
         }
 
         .container {
@@ -50,32 +52,32 @@
         }
     </style>
 </head>
+
 <body>
 
 <div class="container">
     <h2>Palindrome Checker</h2>
+
     <input type="text" id="textInput" placeholder="Enter text">
+
     <button onclick="checkPalindrome()">Check</button>
+
     <p id="result"></p>
 </div>
 
 <script>
-    function checkPalindrome() {
-        let text = document.getElementById("textInput").value;
+function checkPalindrome() {
+    let text = document.getElementById("textInput").value;
 
-        // Convert to lowercase and remove non-alphanumeric characters
-        let cleaned = text.toLowerCase().replace(/[^a-z0-9]/g, "");
+    let cleaned = text.toLowerCase().replace(/[^a-z0-9]/g, "");
+    let reversed = cleaned.split("").reverse().join("");
 
-        // Reverse string
-        let reversed = cleaned.split("").reverse().join("");
-
-        // Check palindrome
-        if (cleaned === reversed && cleaned !== "") {
-            document.getElementById("result").innerText = "✅ It is a Palindrome!";
-        } else {
-            document.getElementById("result").innerText = "❌ Not a Palindrome.";
-        }
+    if (cleaned && cleaned === reversed) {
+        document.getElementById("result").innerText = "✅ It is a Palindrome!";
+    } else {
+        document.getElementById("result").innerText = "❌ Not a Palindrome.";
     }
+}
 </script>
 
 </body>
