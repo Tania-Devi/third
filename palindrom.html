@@ -12,17 +12,20 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #333;
             margin: 0;
         }
 
         .container {
             background: white;
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
-            width: 300px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            width: 320px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            margin-bottom: 10px;
         }
 
         input {
@@ -30,7 +33,8 @@
             width: 90%;
             margin: 10px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 6px;
+            outline: none;
         }
 
         button {
@@ -38,8 +42,9 @@
             background: #667eea;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         button:hover {
@@ -49,6 +54,7 @@
         #result {
             margin-top: 15px;
             font-weight: bold;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -59,6 +65,8 @@
     <h2>Palindrome Checker</h2>
 
     <input type="text" id="textInput" placeholder="Enter text">
+
+    <br>
 
     <button onclick="checkPalindrome()">Check</button>
 
@@ -72,7 +80,7 @@ function checkPalindrome() {
     let cleaned = text.toLowerCase().replace(/[^a-z0-9]/g, "");
     let reversed = cleaned.split("").reverse().join("");
 
-    if (cleaned && cleaned === reversed) {
+    if (cleaned !== "" && cleaned === reversed) {
         document.getElementById("result").innerText = "✅ It is a Palindrome!";
     } else {
         document.getElementById("result").innerText = "❌ Not a Palindrome.";
